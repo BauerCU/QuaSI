@@ -17,7 +17,7 @@ QuaSIl = "QuaSI - Quantitation and Segmentation of microscopic Images \n"
 +"and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: \n"
 +" \n"
 +"The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. \n"
-+"If this Software is referred to in a scientific publication, the link to the original github repository shall be included. \n" // edit this part (github link, ...)
++"If this Software is referred to in a scientific publication, the link to the original github repository (https://github.com/BauerCU/QuaSI) shall be included. \n"
 +" \n"
 +"THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, \n"
 +"FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER \n"
