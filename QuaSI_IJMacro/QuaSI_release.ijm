@@ -7,7 +7,7 @@
  */
 
 /// version number and license
-QuaSIv = "4-1-2";
+QuaSIv = "4-1-3";
 QuaSIl = "QuaSI - Quantitation and Segmentation of microscopic Images \n"
 +"\n"
 +"Copyright (c) 2019 Christina U Bauer, Department of Biomedicine, University of Basel \n"
@@ -1197,7 +1197,7 @@ QsatA[0] = "mask satisfaction";
 QRGBcol = "convert to greyscale";
 QRGBbw = "light structure, dark background";
 QskipRGB = false;
-if (sliceA[1] > 1){
+if (sliceA[1] > 1){ // maybe edit this part to min(sliceA) > 1
 QprojectionI = 3; // default set to SUM SLICES	
 } else {
 QprojectionI = getIndex(QprojectionA, "all slices separately");	}
@@ -1359,7 +1359,7 @@ Dialog.create("Channel names");
 	for (l = 1; l <= channelA[sl]; l += 1){
 	Dialog.addString("Name of channel C"+l, l);}		
 Dialog.show();
-} else if (lengthOf(QchannelA) != channelA[sl]){
+} else if (lengthOf(QchannelA) != channelA[sl-1]){ // same as for ROI mask definition
 Dialog.create("Channel names");
 	Dialog.addMessage("The number of channels has changed. Do you want to enter new channel names?\nThis will be applied to all subsequent images.");
 	for (l = 1; l <= channelA[sl]; l += 1){
@@ -1686,7 +1686,7 @@ Dialog.create("Channel names");
 	for (l = 1; l <= channelA[sl]; l += 1){
 	Dialog.addString("Name of channel C"+l, l);}		
 Dialog.show();
-} else if (lengthOf(FchannelA) != channelA[sl]){
+} else if (lengthOf(FchannelA) != channelA[sl-1]){ // same as above?
 Dialog.create("Channel names");
 	Dialog.addMessage("The number of channels has changed. Do you want to enter new channel names?\nThis will be applied to all subsequent images.");
 	for (l = 1; l <= channelA[sl]; l += 1){
@@ -1759,10 +1759,10 @@ Dialog.show();
 FRGBbw = Dialog.getRadioButton();
 FskipRGB = Dialog.getCheckbox();
 }
-if (QRGBcol == "convert to greyscale"){
+if (FRGBcol == "convert to greyscale"){
 run("RGB to Luminance"); // enhance this part with the option to split channels and rearrange in greyscale stack, see code stubs
 }
-if (QRGBbw == "dark structure, light background"){
+if (FRGBbw == "dark structure, light background"){
 run("Invert LUT");}
 } // end if loop RGB
 if (channelA[sl] > 1) {
@@ -1877,7 +1877,11 @@ run("Set Scale...", "distance=1 known="+XsizeA[sl]+" pixel=1 unit="+unitA[sl]);
 run("Duplicate...", "duplicate range="+FfirstZA[sl]+"-"+FlastZA[sl]);
 rename(seriesA[sl]);
 selectWindow(seriesA[sl]);
-run("Split Channels"); // default naming: C1-series, C2-series, ...
+if (channelA[sl] > 1) {
+run("Split Channels");// default naming: C1-series, C2-series, ...
+} else {
+rename("C1-"+seriesA[sl]);	
+}
 selectWindow("C"+(FchannelI+1)+"-"+seriesA[sl]);
 if (FprojectionT != "mid section"){
 run("Z Project...", "projection=["+projectionA[FprojectionI]+"]");}
