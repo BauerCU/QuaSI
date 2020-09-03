@@ -7,7 +7,7 @@
  */
 
 /// version number and license
-QuaSIv = "4-1-0";
+QuaSIv = "4-1-2";
 QuaSIl = "QuaSI - Quantitation and Segmentation of microscopic Images \n"
 +"\n"
 +"Copyright (c) 2019 Christina U Bauer, Department of Biomedicine, University of Basel \n"
@@ -858,7 +858,7 @@ RchannelN = ""; //initializer
 		for (l = 1; l <= channelA[sl]; l += 1){
 		Dialog.addString("Name of channel C"+l, l);}		
 	Dialog.show();
-	} else if (lengthOf(RchannelA) != channelA[sl]){
+	} else if (lengthOf(RchannelA) != channelA[sl-1]){
 	Dialog.create("Channel names");
 		Dialog.addMessage("The number of channels has changed. Do you want to enter new channel names?\nThis will be applied to all subsequent images.");
 		for (l = 1; l <= channelA[sl]; l += 1){
@@ -2016,7 +2016,7 @@ skipFoci = false; // set to true to omit foci annotation (not really meaningful)
 skipRois = false;
 IprojectionA = Array.concat(projectionA, "keep stack");
 IprojectpreA = Array.concat(projectpreA, "STK");
-IprojectionT = IprojectionA[3];
+//IprojectionT = IprojectionA[3]; // new: defined within loop dependent on channel number
 IcustomMan = "Missed Rois - Num;Image Quality - Str";
 roiAnnot = "Apoptotic - Str;Inclusion - Num";
 fociAnnot = "Size - Num;Remark - Str";
@@ -2118,6 +2118,13 @@ if (getIndex(fociPara,seriesA[sl]) != -1){ // import information from ROI genera
 } while (getIndex(fociPara,seriesA[sl]) == -1 && igFoci == false)	
 } else { IsatFA[sl] = "skip image";} // end if loop for Foci analysis
 if (IsatA[sl] != "skip image" || IsatFA[sl] != "skip image"){
+if (sl == 1 || sliceA[sl] != sliceA[sl-1]){
+if (sliceA[sl] > 1){ 
+IprojectionT = 	IprojectionA[3];	
+} else {
+IprojectionT = 	IprojectionA[6];	
+}
+}
 Dialog.create("Inspection settings, image "+sl+" / "+seriesN); // suggestion: add option to hide this dialog and use same settings for all!!!
 	Dialog.addMessage("Please specify how you want to visualize your image.");
 	Dialog.addCheckbox("Split Channels",IsplitB);
