@@ -7,7 +7,7 @@
  */
 
 /// version number and license
-QuaSIv = "4-1-3";
+QuaSIv = "4-2-0";
 QuaSIl = "QuaSI - Quantitation and Segmentation of microscopic Images \n"
 +"\n"
 +"Copyright (c) 2019 Christina U Bauer, Department of Biomedicine, University of Basel \n"
@@ -586,6 +586,8 @@ selectWindow(seriesA[sl]);
 if (bitDepth() == 24){ // for RGB-pictures: show greyscale and RGB side by side
 run("Duplicate...", "duplicate");
 rename(VprefixA[VprojectionI]+"_RGB_"+seriesA[sl]);
+selectWindow("MID_C1-"+seriesA[sl]); // new 4-2-0
+run("RGB Color"); // new 4-2-0
 run("Images to Stack", "name="+VprefixA[VprojectionI]+"_stack-"+seriesA[sl]+" title="+VprefixA[VprojectionI]+"_ keep"); // note: name: stack name to give; title: image titles that define images to be included in stack
 selectWindow(VprefixA[VprojectionI]+"_stack-"+seriesA[sl]);
 run("Make Montage...", "columns="+(channelA[sl]+1)+" rows=1 scale=1 border="+Vborder); 
