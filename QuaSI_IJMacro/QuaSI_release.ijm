@@ -7,7 +7,7 @@
  */
 
 /// version number and license
-QuaSIv = "4-2-0";
+QuaSIv = "4-2-1";
 QuaSIl = "QuaSI - Quantitation and Segmentation of microscopic Images \n"
 +"\n"
 +"Copyright (c) 2019 Christina U Bauer, Department of Biomedicine, University of Basel \n"
@@ -286,7 +286,7 @@ showMessageWithCancel("Warning", seriesNA[i]+" \n is not included in Image-Data 
 if (useInfo == false){
 //reformatting image names for compatibility and clarity
 series = seriesNA[i];
-removers = newArray(" - ",".lif",".tif",".tiff",".png",".jpg",".JPG",".jpeg",".JPEG"," ",",","/",".",":",";"); // list of expressions to remove from file name
+removers = newArray(" - ",".lif",".tif",".tiff",".png",".jpg",".JPG",".jpeg",".JPEG"," ",",","/",".",":",";","+"); // list of expressions to remove from file name
 for (l = 0; l < lengthOf(removers); l += 1){
 series = replace(series,removers[l], "_");}
 while (matches(series, ".*__.*") == true) {
