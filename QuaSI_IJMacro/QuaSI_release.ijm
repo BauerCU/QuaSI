@@ -1834,7 +1834,7 @@ roiManager("Deselect");	}
 roiManager("Set Color", "magenta");
 roiManager("Show All without labels");
 setTool("multipoint");
-waitForUser("Manual curation", "Please delete unwanted foci from ROI Manger and/or manually select foci" 
+waitForUser("Manual curation", "Please delete unwanted foci from ROI Manager and/or manually select foci" 
 + "\nwith the 'Multipoint' tool (add to Manager with 't').\nConfirm with OK after you are satisfied with the foci selection.");
 run("Clear Results"); 
 if (roiManager("Count") > 0){
@@ -2320,7 +2320,7 @@ for (i = 0; i < fociCount; i += 1){
 }} // end loops 1 Dialog box
 hideDia = Dialog.getCheckbox();
 if (hideDia == true){
-waitForUser("Pause", "You can look at ROIs separately with the Manger, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
+waitForUser("Pause", "You can look at ROIs separately with the Manager, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
 }
 } while (hideDia == true);
 hideDia = true;
@@ -2375,7 +2375,7 @@ for (i = 0; i < roiCount; i += 1){
 	} // end for loop rois	
 hideDia = Dialog.getCheckbox();
 if (hideDia == true){
-waitForUser("Pause", "You can look at ROIs separately with the Manger, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
+waitForUser("Pause", "You can look at ROIs separately with the Manager, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
 }
 } // end for loop annotations (1 Dialog box / annotation
 } else {
@@ -2406,7 +2406,7 @@ for (i = 0; i < lengthOf(roiSelectA); i += 1){
 	} // end for loop rois	
 hideDia = Dialog.getCheckbox();
 if (hideDia == true){
-waitForUser("Pause", "You can look at ROIs separately with the Manger, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
+waitForUser("Pause", "You can look at ROIs separately with the Manager, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
 }
 } // end for loop annotations (1 Dialog box / annotation)
 } // end if-else < 20 annotation lines
@@ -2441,7 +2441,7 @@ for (a = 0; a < lengthOf(fociAnnotA); a += 1){
 	} // end for loop annotations
 hideDia = Dialog.getCheckbox();
 if (hideDia == true){
-waitForUser("Pause", "You can look at ROIs separately with the Manger, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
+waitForUser("Pause", "You can look at ROIs separately with the Manager, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
 }
 } else if (fociCount <= 20){
 fociSelectA = Array.slice(Array.getSequence(fociCount+1),1,fociCount+1);
@@ -2465,7 +2465,7 @@ for (i = 0; i < fociCount; i += 1){
 	} // end for loop foci	
 hideDia = Dialog.getCheckbox();
 if (hideDia == true){
-waitForUser("Pause", "You can look at ROIs separately with the Manger, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
+waitForUser("Pause", "You can look at ROIs separately with the Manager, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
 }
 } // end for loop annotations (1 Dialog box / annotation
 } else {
@@ -2496,7 +2496,7 @@ for (i = 0; i < lengthOf(fociSelectA); i += 1){
 	} // end for loop foci	
 hideDia = Dialog.getCheckbox();
 if (hideDia == true){
-waitForUser("Pause", "You can look at ROIs separately with the Manger, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
+waitForUser("Pause", "You can look at ROIs separately with the Manager, adjust brightness/contrast etc.\nIf you want to continue with the analysis, click OK and have 'hide Dialog' unchecked in the Dialog box.");	
 }
 } // end for loop annotations (1 Dialog box / annotation
 } // end if-else < 20 annotation lines
