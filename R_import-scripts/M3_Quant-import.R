@@ -5,7 +5,10 @@ ppp <- readline(prompt = "path: ")
 title <- "Quant"
 slideA <- list.files(ppp)[grep("_\\D\\D\\D(\\.|_BG\\.)txt$", list.files(ppp))]
 slideA <- gsub("^[^-]+-","",slideA) # remove prefixes
-slideA <- gsub("_\\D\\D\\D(\\.|_BG\\.)txt$","",slideA)[-grep("Parameters",list.files(ppp))] # remove suffixes
+slideA <- gsub("_\\D\\D\\D(\\.|_BG\\.)txt$","",slideA) # remove suffixes
+if (file.exists(paste0(ppp,"/Parameters.txt"))){
+  slideA <- slideA[-grep("Parameters",list.files(ppp))]
+}
 slideN <- unique(slideA)
 for (qb in c(1:2)){ 
   for (f in c(1:length(slideN))){
